@@ -22,10 +22,9 @@ click.addEventListener("click", function () {
         else if (str[i] == " ") {
             space++;
         }
-        else {
+        else if (isNaN(str[i])) {
             cCount++;
         }
-        console.log(str[i]);
     }
     let result = "";
     let capitalizeNext = false;
@@ -35,13 +34,15 @@ click.addEventListener("click", function () {
         if (str[i] === " " || str[i] === "_" || str[i] === "-") {
             capitalizeNext = true;
             check = str[i];
-        } else {
+        }
+        else {
             if (capitalizeNext) {
                 result += str[i].toUpperCase();
                 capitalizeNext = false;
                 if (check === " ")
                     word++;
-            } else {
+            }
+            else {
                 if (result === "") {
                     result += str[i].toLowerCase();
                     word = 1;
